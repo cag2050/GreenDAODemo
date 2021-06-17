@@ -14,11 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.greenrobot.greendao.query.Query;
 
-import java.util.List;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
     private EditText editText;
     private View addNoteButton;
 
@@ -100,6 +101,11 @@ public class MainActivity extends AppCompatActivity {
         note.setComment(comment);
         note.setDate(new Date());
         note.setType(NoteType.TEXT);
+
+//        Transient fields are not persisted in the database.
+        note.setOnlineStatus(2);
+        Log.d(TAG, String.valueOf(note.getOnlineStatus()));
+
         noteDao.insert(note);
         Log.d("DaoExample", "Inserted new note, ID: " + note.getId());
 

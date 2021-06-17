@@ -6,6 +6,7 @@ import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Index;
 import org.greenrobot.greendao.annotation.NotNull;
+import org.greenrobot.greendao.annotation.Transient;
 
 /**
  * Entity mapped to table "NOTE".
@@ -24,6 +25,9 @@ public class Note {
 
     @Convert(converter = NoteTypeConverter.class, columnType = String.class)
     private NoteType type;
+
+    @Transient
+    private int onlineStatus;
 
     @Generated(hash = 1272611929)
     public Note() {
@@ -82,5 +86,13 @@ public class Note {
 
     public void setType(NoteType type) {
         this.type = type;
+    }
+
+    public int getOnlineStatus() {
+        return onlineStatus;
+    }
+
+    public void setOnlineStatus(int onlineStatus) {
+        this.onlineStatus = onlineStatus;
     }
 }

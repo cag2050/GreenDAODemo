@@ -20,6 +20,7 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
+# greenDAO: https://github.com/greenrobot/greenDAO
 -keepclassmembers class * extends org.greenrobot.greendao.AbstractDao {
 public static java.lang.String TABLENAME;
 }
